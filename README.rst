@@ -1,3 +1,9 @@
+forked from saltstack-formulas/lxd-formula
+Please use original and not this for. I changed stuff so it works for me under arch linux.
+My other salt modules are taking care of some of the stuff i removed (deps etc).
+Use at your own risk.
+
+
 ===
 LXD
 ===
