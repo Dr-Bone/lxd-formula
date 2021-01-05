@@ -1654,8 +1654,7 @@ def container_file_put(name, src, dst, recursive=False, overwrite=False,
 
         with salt.utils.fopen(src, 'rb') as src_fp:
             container.files.put(
-                dst, src_fp.read(),
-                mode=mode, uid=uid, gid=gid
+                dst, src_fp.read()
             )
         return True
     elif not os.path.isdir(src):
@@ -1722,8 +1721,7 @@ def container_file_put(name, src, dst, recursive=False, overwrite=False,
 
             with salt.utils.fopen(src_name, 'rb') as src_fp:
                 container.files.put(
-                    dst_name, src_fp.read(),
-                    mode=set_mode, uid=set_uid, gid=set_gid
+                    dst_name, src_fp.read()
                 )
 
     return True
@@ -3604,7 +3602,8 @@ except ImportError:
 
 class FilesManager(Container.FilesManager):
 
-    def put(self, filepath, data, mode=None, uid=None, gid=None):
+#DISABLE THIS AS THIS IS PART OF pylxd in 2.2.11
+    def putDISABLED(self, filepath, data, mode=None, uid=None, gid=None):
         headers = {}
         if mode is not None:
             if isinstance(mode, int):
